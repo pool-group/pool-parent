@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mqtt-home/mqtt-home.iml" filepath="$PROJECT_DIR$/mqtt-home/mqtt-home.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order-home/order-home.iml" filepath="$PROJECT_DIR$/order-home/order-home.iml" />
       <module fileurl="file://$PROJECT_DIR$/parent.iml" filepath="$PROJECT_DIR$/parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-home/web-home.iml" filepath="$PROJECT_DIR$/web-home/web-home.iml" />
     </modules>
   </component>
 </project>
