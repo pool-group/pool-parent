@@ -6,4 +6,4 @@
 *.iml
 /target/
 *.class
-workspace.xml
+idea/workspace.xml
