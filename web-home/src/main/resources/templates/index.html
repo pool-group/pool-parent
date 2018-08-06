@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script th:src="@{/js/mqttws31.min.js}"></script>
+    <script th:src="@{/js/jquery.min.js}"></script>
+</head>
+<body>
+    首页！！！！！！！！！！！！！！！！！！！！！！！！！
+    <div>
+        <textarea id="textareaId" style="width:600px;height:800px">
+
+        </textarea>
+    </div>
+</body>
+<script type="text/javascript">
+    $(function() {
+
+            //参数说明：服务器域名, Number(端口号), 客户端ID
+            client = new Paho.MQTT.Client("192.168.1.24", Number(8083), "html-clientId" + RndNum(12)); //建立客户端实例
+            client.connect({
+                onSuccess: onConnect,
+                userName: "duanpeng",
+                password: "5201314"
+            }); //连接服务器并注册连接成功处理事件
+            client.onConnectionLost = onConnectionLost; //注册连接断开处理事件
+            client.onMessageArrived = onMessageArrived; //注册消息接收处理事件
+            function onConnect() {
+                client.subscribe("mqtt-topic-app"); //订阅主题
+            }
+            function onConnectionLost(responseObject) {
+                if(responseObject.errorCode !== 0) {
+                    console.log("连接已断开");
+                }
+            }
+            function onMessageArrived(message) {
+                var ss = message.destinationName;
+                var meg = message.payloadString;
+                var texts=$("#textareaId").text();
+                $("#textareaId").text(texts+"\n"+meg);
+            }
+    });
+
+
+    //产生随机数函数
+    function RndNum(n){
+        var rnd="";
+        for(var i=0;i<n;i++)
+            rnd+=Math.floor(Math.random()*10);
+        return rnd;
+    }
+</script>
+</html>

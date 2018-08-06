@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * Created by duanp on 2018/8/4.
  */
 
-@FeignClient(value = "order-home-server")
+@FeignClient(value = "order-home")
 public interface OrderInfoClient {
 
     /**

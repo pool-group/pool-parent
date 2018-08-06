@@ -1,13 +1,13 @@
 server:
-  port: 8082 #8182
+  port: 8083 #8183
 
 spring:
   application:
-    name: order-home
+    name: mqtt-home
 eureka:
   instance:
-    hostname: localhost  #IP地址
-    prefer-ip-address: true  #不使用主机名来定义注册中心的地址，而使用IP地址的形式，如果设置了eureka.instance.ip-address 属性，则使用该属性配置的IP，否则自动获取除环路IP外的第一个IP地址
+    hostname: mqtt-home  #IP地址
+    prefer-ip-address: false  #不使用主机名来定义注册中心的地址，而使用IP地址的形式，如果设置了eureka.instance.ip-address 属性，则使用该属性配置的IP，否则自动获取除环路IP外的第一个IP地址
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
   client:
     registerWithEureka: true  #表示是否将自己注册到Eureka Server，默认为true。由于当前应用就是Eureka Server，故而设置为false
@@ -15,4 +15,12 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka  #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址，多个地址可用，用，分割
 
-    
+mqtt:
+  properties:
+    hostName: tcp://192.168.1.24:1883
+    clientId: server-clientId
+    appTopic: mqtt-topic-app
+    userName: duanpeng
+    password: 5201314
+    timeout: 10
+    keepalive: 20

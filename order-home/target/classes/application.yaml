@@ -7,8 +7,8 @@ spring:
 eureka:
   instance:
     hostname: localhost  #IP地址
-    prefer-ip-address: true  #不使用主机名来定义注册中心的地址，而使用IP地址的形式，如果设置了eureka.instance.ip-address 属性，则使用该属性配置的IP，否则自动获取除环路IP外的第一个IP地址
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    prefer-ip-address: false  #不使用主机名来定义注册中心的地址，而使用IP地址的形式，如果设置了eureka.instance.ip-address 属性，则使用该属性配置的IP，否则自动获取除环路IP外的第一个IP地址
+    instance-id: ${spring.application.name}:${spring.application.instance_id}:${server.port}
   client:
     registerWithEureka: true  #表示是否将自己注册到Eureka Server，默认为true。由于当前应用就是Eureka Server，故而设置为false
     fetchRegistry:  false  #表示是否从Eureka Server获取注册信息，默认为true。因为这是一个单点的Eureka Server，不需要同步其他的Eureka Server节点的数据，故而设置为false
