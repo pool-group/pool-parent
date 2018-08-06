@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="eureka" />
+        <module name="mqtt-home" />
+        <module name="order-home" />
+        <module name="web-home" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eureka" target="1.8" />
+      <module name="mqtt-home" target="1.7" />
+      <module name="order-home" target="1.7" />
+      <module name="parent" target="1.7" />
+      <module name="web-home" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
